@@ -242,7 +242,7 @@ public partial class @PlayerActionMap: IInputActionCollection2, IDisposable
                     ""id"": ""7cd4574c-817f-4107-898e-3a6cd7c50cd2"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""InvertVector2(invertX=false)"",
                     ""groups"": """",
                     ""action"": ""Look"",
                     ""isComposite"": false,

@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+
 public class InputManager : MonoBehaviour
 {
     private static InputManager _instance;
@@ -47,12 +48,12 @@ public class InputManager : MonoBehaviour
         return controls.Player.Look.ReadValue<Vector2>();
     }
 
-    public Boolean IsJumpingThisFrame()
+    public bool IsJumpingThisFrame()
     {
         return controls.Player.Jump.triggered;
     }
 
-    public Boolean IsCrouching()
+    public bool IsCrouching()
     {
         return controls.Player.Crouch.IsPressed();
     }
