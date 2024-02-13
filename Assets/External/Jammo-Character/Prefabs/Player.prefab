@@ -1971,10 +1971,14 @@ GameObject:
   - component: {fileID: 7635726066119915157}
   - component: {fileID: 8637482993335241640}
   - component: {fileID: 8996353869902075790}
-  - component: {fileID: 1363502223155760946}
-  - component: {fileID: 722995554519755592}
-  - component: {fileID: 2511213279150758490}
   - component: {fileID: 7855697228468941185}
+  - component: {fileID: 2511213279150758490}
+  - component: {fileID: 7449173220502799003}
+  - component: {fileID: 2819664470045114013}
+  - component: {fileID: 191755613911370982}
+  - component: {fileID: 722995554519755592}
+  - component: {fileID: 1363502223155760946}
+  - component: {fileID: 8465522863250265982}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2072,7 +2076,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1363502223155760946
+--- !u!114 &7855697228468941185
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2081,74 +2085,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3541754002163558908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d1bc5515e3ab954e80599c538834774, type: 3}
+  m_Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Capsule: {fileID: 8637482993335241640}
-  CapsuleRadius: 0.5
-  CapsuleHeight: 2
-  CapsuleYOffset: 1
-  CapsulePhysicsMaterial: {fileID: 13400000, guid: f0505dac8956a604486b9c9cfed32c96, type: 2}
-  GroundDetectionExtraDistance: 0
-  MaxStableSlopeAngle: 60
-  StableGroundLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  DiscreteCollisionEvents: 0
-  StepHandling: 2
-  MaxStepHeight: 0.5
-  AllowSteppingWithoutStableGrounding: 0
-  MinRequiredStepDepth: 0.1
-  LedgeAndDenivelationHandling: 1
-  MaxStableDistanceFromLedge: 0.5
-  MaxVelocityForLedgeSnap: 0
-  MaxStableDenivelationAngle: 180
-  InteractiveRigidbodyHandling: 1
-  RigidbodyInteractionType: 1
-  SimulatedCharacterMass: 1
-  PreserveAttachedRigidbodyMomentum: 1
-  HasPlanarConstraint: 0
-  PlanarConstraintAxis: {x: 0, y: 0, z: 1}
-  MaxMovementIterations: 5
-  MaxDecollisionIterations: 1
-  CheckMovementInitialOverlaps: 1
-  KillVelocityWhenExceedMaxMovementIterations: 1
-  KillRemainingMovementWhenExceedMaxMovementIterations: 1
---- !u!114 &722995554519755592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3541754002163558908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4da7114b9069528428769aac284b3e0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Motor: {fileID: 1363502223155760946}
-  headController: {fileID: 4859721672006841040}
-  bodyController: {fileID: 8231537208724914221}
-  headFollowTreshhold: 30
-  bodyRotationSpeed: 720
-  maxStableMoveSpeed: 10
-  stableMovementSharpness: 15
-  orientationSharpness: 10
-  orientationMethod: 0
-  maxAirMoveSpeed: 5
-  airAccelerationSpeed: 5
-  drag: 0.1
-  allowJumpingWhenSliding: 0
-  jumpUpSpeed: 10
-  jumpScalableForwardSpeed: 0
-  jumpPreGroundingGraceTime: 0
-  jumpPostGroundingGraceTime: 0
-  ignoredColliders: []
-  bonusOrientationMethod: 0
-  bonusOrientationSharpness: 10
-  gravity: {x: 0, y: -30, z: 0}
-  meshRoot: {fileID: 0}
-  crouchedCapsuleHeight: 1
+  m_RigLayers:
+  - m_Rig: {fileID: 7173261979914383112}
+    m_Active: 1
+  m_Effectors: []
 --- !u!114 &2511213279150758490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2227,7 +2170,7 @@ MonoBehaviour:
   - {fileID: 7720914278555990249}
   - {fileID: 4523608188334145856}
   - {fileID: 3119608742464780565}
---- !u!114 &7855697228468941185
+--- !u!114 &7449173220502799003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2236,13 +2179,121 @@ MonoBehaviour:
   m_GameObject: {fileID: 3541754002163558908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
+  m_Script: {fileID: 11500000, guid: 36a33ad25d4ee2648a26d131ec6406a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RigLayers:
-  - m_Rig: {fileID: 7173261979914383112}
-    m_Active: 1
-  m_Effectors: []
+--- !u!114 &2819664470045114013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3541754002163558908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a03d41aae9acc4540b5c7b9f48dbc2cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &191755613911370982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3541754002163558908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62272415d7c51cb4d8f70bbc09e4bf1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &722995554519755592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3541754002163558908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4da7114b9069528428769aac284b3e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  headController: {fileID: 4859721672006841040}
+  bodyController: {fileID: 8231537208724914221}
+  headFollowTreshhold: 50
+  bodyRotationSpeed: 720
+  maxStableMoveSpeed: 10
+  stableMovementSharpness: 15
+  orientationSharpness: 10
+  orientationMethod: 0
+  maxAirMoveSpeed: 5
+  airAccelerationSpeed: 5
+  drag: 0.1
+  allowJumpingWhenSliding: 0
+  jumpUpSpeed: 10
+  jumpScalableForwardSpeed: 0
+  jumpPreGroundingGraceTime: 0
+  jumpPostGroundingGraceTime: 0
+  ignoredColliders: []
+  bonusOrientationMethod: 0
+  bonusOrientationSharpness: 10
+  gravity: {x: 0, y: -30, z: 0}
+  meshRoot: {fileID: 0}
+  crouchedCapsuleHeight: 1
+--- !u!114 &1363502223155760946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3541754002163558908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1bc5515e3ab954e80599c538834774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Capsule: {fileID: 8637482993335241640}
+  CapsuleRadius: 0.5
+  CapsuleHeight: 2
+  CapsuleYOffset: 1
+  CapsulePhysicsMaterial: {fileID: 13400000, guid: f0505dac8956a604486b9c9cfed32c96, type: 2}
+  GroundDetectionExtraDistance: 0
+  MaxStableSlopeAngle: 60
+  StableGroundLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  DiscreteCollisionEvents: 0
+  StepHandling: 2
+  MaxStepHeight: 0.5
+  AllowSteppingWithoutStableGrounding: 0
+  MinRequiredStepDepth: 0.1
+  LedgeAndDenivelationHandling: 1
+  MaxStableDistanceFromLedge: 0.5
+  MaxVelocityForLedgeSnap: 0
+  MaxStableDenivelationAngle: 180
+  InteractiveRigidbodyHandling: 1
+  RigidbodyInteractionType: 1
+  SimulatedCharacterMass: 1
+  PreserveAttachedRigidbodyMomentum: 1
+  HasPlanarConstraint: 0
+  PlanarConstraintAxis: {x: 0, y: 0, z: 1}
+  MaxMovementIterations: 5
+  MaxDecollisionIterations: 1
+  CheckMovementInitialOverlaps: 1
+  KillVelocityWhenExceedMaxMovementIterations: 1
+  KillRemainingMovementWhenExceedMaxMovementIterations: 1
+--- !u!114 &8465522863250265982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3541754002163558908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9769125301bcee41a9477498b1ea738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3921334144448749991
 GameObject:
   m_ObjectHideFlags: 0

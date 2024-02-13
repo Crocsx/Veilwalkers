@@ -16,7 +16,8 @@ public class InputManager : MonoBehaviour
 
     void Awake()
     {
-        if(_instance != null && _instance != this)
+        controls = new PlayerActionMap();
+        if (_instance != null && _instance != this)
         {
             Destroy(this);
         } 
@@ -24,7 +25,6 @@ public class InputManager : MonoBehaviour
         {
             _instance = this;
         }
-        controls = new PlayerActionMap();
     }
 
     // Update is called once per frame
