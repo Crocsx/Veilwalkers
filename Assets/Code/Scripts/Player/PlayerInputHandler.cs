@@ -1,7 +1,7 @@
 using Unity.Netcode;
 using UnityEngine;
 
-public struct PlayerCharacterInputs
+public struct PlayerCharacterInputs : INetworkSerializable
 {
     public float MoveAxisForward;
     public float MoveAxisRight;
@@ -9,6 +9,16 @@ public struct PlayerCharacterInputs
     public float LookAxisRight;
     public bool Jump;
     public bool Crouch;
+
+    public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
+    {
+        serializer.SerializeValue(ref MoveAxisForward);
+        serializer.SerializeValue(ref MoveAxisRight);
+        serializer.SerializeValue(ref LookAxisUp);
+        serializer.SerializeValue(ref LookAxisRight);
+        serializer.SerializeValue(ref Jump);
+        serializer.SerializeValue(ref Crouch);
+    }
 }
 
 [RequireComponent(typeof(VirtualController))]
@@ -21,15 +31,26 @@ public class PlayerInputHandler : NetworkBehaviour
     {
         inputManager = InputManager.Instance;
         virtualController = GetComponent<VirtualController>();
-        GetComponent<Transform>().name = "Myobject" + NetworkManager.Singleton.ConnectedClients.Count;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("isOwner : " + GetComponent<Transform>().name + " " + IsOwner);
         if (!IsOwner) return;
-        virtualController.UpdateInputs(GetInputs());
+        PlayerCharacterInputs inputs = GetInputs();
+        virtualController.UpdateInputs(inputs);
+        SendInputToServerServerRpc(inputs);
+    }
+
+    [ServerRpc]
+    public void SendInputToServerServerRpc(PlayerCharacterInputs inputs)
+    {
+        virtualController.UpdateInputs(inputs);
+    }
+    
+    public void ProcessInputsOnServer(PlayerCharacterInputs inputs)
+    {
+        virtualController.UpdateInputs(inputs);
     }
 
     public PlayerCharacterInputs GetInputs()

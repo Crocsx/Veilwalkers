@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 namespace KinematicCharacterController
 {
@@ -10,12 +12,20 @@ namespace KinematicCharacterController
     /// Use this to save state or revert to past state
     /// </summary>
     [System.Serializable]
-    public struct PhysicsMoverState
+    public struct PhysicsMoverState : INetworkSerializable
     {
         public Vector3 Position;
         public Quaternion Rotation;
         public Vector3 Velocity;
         public Vector3 AngularVelocity;
+
+        public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
+        {
+            serializer.SerializeValue(ref Position);
+            serializer.SerializeValue(ref Rotation);
+            serializer.SerializeValue(ref Velocity);
+            serializer.SerializeValue(ref AngularVelocity);
+        }
     }
 
     /// <summary>

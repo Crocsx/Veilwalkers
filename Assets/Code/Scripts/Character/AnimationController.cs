@@ -16,7 +16,7 @@ public class AnimationController : MonoBehaviour
 
     public void Crouch(bool isCrouching)
     {
-        animator.SetBool("Crouch", isCrouching);
+        //animator.SetBool("Crouch", isCrouching);
     }
 
     public void SetMovement(float speed)

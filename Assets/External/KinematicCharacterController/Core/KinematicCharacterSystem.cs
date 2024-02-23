@@ -185,7 +185,6 @@ namespace KinematicCharacterController
             int characterMotorsCount = motors.Count;
             int physicsMoversCount = movers.Count;
 
-#pragma warning disable 0162
             // Update PhysicsMover velocities
             for (int i = 0; i < physicsMoversCount; i++)
             {
@@ -217,7 +216,6 @@ namespace KinematicCharacterController
 
                 motor.Transform.SetPositionAndRotation(motor.TransientPosition, motor.TransientRotation);
             }
-#pragma warning restore 0162
         }
 
         /// <summary>

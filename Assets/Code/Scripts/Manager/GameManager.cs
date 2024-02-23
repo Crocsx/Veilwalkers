@@ -1,6 +1,7 @@
 
 using UnityEngine;
 using System.Collections.Generic;
+using KinematicCharacterController;
 
 public class GameManager : MonoBehaviour
 {
@@ -38,5 +39,10 @@ public class GameManager : MonoBehaviour
         {
             playerCameras[0].ActivateCamera();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        KinematicCharacterSystem.Simulate(Time.fixedDeltaTime, KinematicCharacterSystem.CharacterMotors, KinematicCharacterSystem.PhysicsMovers);
     }
 }

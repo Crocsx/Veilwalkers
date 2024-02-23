@@ -36,8 +36,8 @@ public class PlayerHeadController : MonoBehaviour
 
     void InitializeCursor()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        // Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.visible = false;
     }
 
     void ProcessInput(float deltaTime)

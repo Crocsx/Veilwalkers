@@ -1,6 +1,5 @@
 using Unity.Netcode;
 using Cinemachine;
-using UnityEngine;
 
 public class PlayerCameraController : NetworkBehaviour
 {
